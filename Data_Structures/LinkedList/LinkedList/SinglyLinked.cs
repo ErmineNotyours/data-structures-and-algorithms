@@ -16,17 +16,15 @@ namespace LinkedList
         {
             Head = node;
         }
-        //Node tail;
 
-        //add
         //O(1) - .Add() - adds a node to the front of the linked list
         //O(n) - .Find() - Finds a specific value in the linked list   DONE
 
         /// <summary>
-        /// Adds a new node to a linked list and populates it with a value at the end of the list
+        /// Adds a new node to the end of a linked list and populates it with a value.
         /// </summary>
         /// <param name="value">The value to be populated into the node</param>
-        public void Add(int value)
+        public void AddAtEnd(int value)
         {
             Node cur = Head; // start of node list
             Node nodeLast = new Node(); // To be a new last node on the list
@@ -39,7 +37,22 @@ namespace LinkedList
             // Now cur is the last node on the list
             nodeLast.Next = null; // Necessary for making system know that this node exists.  Otherwise you'll get an "Object reference not set to an instance of an object" error
             cur.Next = nodeLast; // Former last node now points to new last node
-            nodeLast.Value = value; // TEMP CODE: adds value to last node.  Now we need to shift everything down.
+            nodeLast.Value = value; // Populate last node. 
+        }
+
+        /// <summary>
+        /// Adds a new node to the front of the list and populates it with a value
+        /// </summary>
+        /// <param name="value">The value to be populated into to the new node</param>
+        public void Add(int value)
+        {
+            Node cur = Head; // start of node list
+            Node node0 = new Node(); // To be the first node on the list
+
+            node0.Next = cur; // Point new node to former first node
+            Head = node0; // Point head to new node
+            node0.Value = value; // Populate first node
+
         }
 
         /// <summary>
