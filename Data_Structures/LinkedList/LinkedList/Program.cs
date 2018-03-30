@@ -4,24 +4,27 @@ using LinkedList;
 
 namespace LinkedList
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
+            // Declare the nodes
             Node node1 = new Node();
             Node node2 = new Node();
             Node node3 = new Node();
             Node node4 = new Node();
 
+            // Link the nodes
             node1.Next = node2;
             node2.Next = node3;
             node3.Next = node4;
             node4.Next = null;
 
+            // Populate the nodes
             node1.Value = 2;
-            //node2.Value = 3;
+            node2.Value = 3;
             node3.Value = 4;
             node4.Value = 5;
 
@@ -31,7 +34,9 @@ namespace LinkedList
 
             sll.Find(3); // Traverses the node, prints out the parameter if found
 
-            sll.Add(11); // Adds value to the start of the node.
+            sll.AddAtEnd(11); // Adds new node and value to the end of the list.
+
+            int dummy = sll.Add(1); // Adds new node and value to the start of the list.
 
             Console.WriteLine("Here's the list again");
             sll.PrintAllNodes(); // prints the list again to show it worked.

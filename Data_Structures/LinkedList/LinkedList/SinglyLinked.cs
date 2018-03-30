@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedList
 {
-    class SinglyLinked
+   public class SinglyLinked
     {
         public Node Head { get; set; }
 
@@ -16,17 +16,15 @@ namespace LinkedList
         {
             Head = node;
         }
-        //Node tail;
 
-        //add
         //O(1) - .Add() - adds a node to the front of the linked list
         //O(n) - .Find() - Finds a specific value in the linked list   DONE
 
         /// <summary>
-        /// Adds a new node to a linked list and populates it with a value at the end of the list
+        /// Adds a new node to the end of a linked list and populates it with a value.
         /// </summary>
         /// <param name="value">The value to be populated into the node</param>
-        public void Add(int value)
+        public int AddAtEnd(int value)
         {
             Node cur = Head; // start of node list
             Node nodeLast = new Node(); // To be a new last node on the list
@@ -37,12 +35,30 @@ namespace LinkedList
                 cur = cur.Next; // get the next node
             }
             // Now cur is the last node on the list
-            nodeLast.Next = null; // Necessary for making system know that this node exists.  Otherwise you'll get an "Object reference not set to an instance of an object" error
-            cur.Next = nodeLast; // Former last node now points to new last node
-            nodeLast.Value = value; // TEMP CODE: adds value to last node.  Now we need to shift everything down.
+            nodeLast.Next = null; //  Point last node to null.  Necessary for making system know that this node exists.  Otherwise you'll get an "Object reference not set to an instance of an object" error
+            cur.Next = nodeLast; // Point former last node to new last node
+            nodeLast.Value = value; // Populate last node.
+            return value; // Only necessary for testing.  This particular data doesn't do anything.  It just writes to a list.
+
         }
 
         /// <summary>
+        /// Adds a new node to the front of the list and populates it with a value
+        /// </summary>
+        /// <param name="value">The value to be populated into to the new node</param>
+        public int Add(int value)
+        {
+            Node node0 = new Node(); // To be the first node on the list
+
+            node0.Next = Head; // Point new node to the Head
+            Head = node0; // Point Head to new node
+            node0.Value = value; // Populate first node
+
+            return value; // Only necessary for testing.  This particular data doesn't do anything.  It just writes to a list.
+        }
+
+        /// <summary>
+        /// Traverses the list, prints all the items to the console
         /// from https://stackoverflow.com/questions/3823848/creating-a-very-simple-linked-list
         /// </summary>
         public void PrintAllNodes()
