@@ -4,7 +4,7 @@ using LinkedList;
 
 namespace LinkedList
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -36,7 +36,7 @@ namespace LinkedList
 
             sll.AddAtEnd(11); // Adds new node and value to the end of the list.
 
-            sll.Add(1); // Adds new node and value to the start of the list.
+            int dummy = sll.Add(1); // Adds new node and value to the start of the list.
 
             Console.WriteLine("Here's the list again");
             sll.PrintAllNodes(); // prints the list again to show it worked.
