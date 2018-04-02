@@ -6,7 +6,13 @@ namespace Stack
 {
     public class Stack
     {
+
         public Node Head { get; set; }
+
+        /// <summary>
+        /// Sets memory location for the head.
+        /// </summary>
+        /// <param name="node">Incoming node at the top of the stack.</param>
         public Stack(Node node)
         {
             Head = node;
