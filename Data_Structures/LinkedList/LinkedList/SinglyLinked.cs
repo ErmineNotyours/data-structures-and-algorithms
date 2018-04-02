@@ -50,7 +50,7 @@ namespace LinkedList
         {
             Node node0 = new Node(); // To be the first node on the list
 
-            node0.Next = Head; // Point new node to the Head
+            node0.Next = Head; // Point new node to what the head was pointing at, now the second node.
             Head = node0; // Point Head to new node
             node0.Value = value; // Populate first node
 
