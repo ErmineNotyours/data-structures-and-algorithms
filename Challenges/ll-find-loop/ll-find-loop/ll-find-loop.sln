@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ll-find-loop", "ll-find-loop\ll-find-loop.csproj", "{E0E956DD-792D-41D6-8B26-EB5F11CBC1FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0E956DD-792D-41D6-8B26-EB5F11CBC1FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E956DD-792D-41D6-8B26-EB5F11CBC1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E956DD-792D-41D6-8B26-EB5F11CBC1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E956DD-792D-41D6-8B26-EB5F11CBC1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6842C7F7-04CA-418E-9A96-C53AD0BF3D74}
+	EndGlobalSection
+EndGlobal
