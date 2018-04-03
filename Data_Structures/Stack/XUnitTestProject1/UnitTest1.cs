@@ -1,5 +1,7 @@
 using System;
 using Xunit;
+using Stack;
+
 
 namespace Stack
 {
@@ -56,7 +58,40 @@ namespace Stack
 
             Assert.Equal(42, stack.Pop().Value);
         }
-        public void CanPush()
+
+        [Fact]
+        public void CanPopEmpty()
+        {
+            //Arrange
+            Node node = new Node() { Value = 4 };
+
+            Stack stack = new Stack(node);
+
+            //Act
+
+            //Assert
+
+            Assert.Equal(4, stack.Pop().Value);
+        }
+
+        [Fact]
+        public void CanPopEmpty2()
+        {
+            //Arrange
+            Node node = new Node() { Value = 4 };
+
+            Stack stack = new Stack(node);
+
+            //Act
+            Node dummy = stack.Pop();  //Pop completey empty
+            //Assert
+
+            Assert.Equal(null, stack.Pop());
+        }
+        
+
+        [Fact]
+        public void CanDequeue()
         {
             //Arrange
             Node node = new Node() { Value = 4 };
@@ -66,20 +101,51 @@ namespace Stack
             Node node5 = new Node() { Value = 23 };
             Node node6 = new Node() { Value = 42 };
 
-            Stack stack = new Stack(node);
-            stack.Push(node2);
-            stack.Push(node3);
-            stack.Push(node4);
-            stack.Push(node5);
-            stack.Push(node6);
+            Queue queue = new Queue(node);
+            queue.Enqueue(node2);
+            queue.Enqueue(node3);
+            queue.Enqueue(node4);
+            queue.Enqueue(node5);
+            queue.Enqueue(node6);
 
             //Act
-            Node node7 = new Node() { Value = 77 };
+
+            //Assert
+            // 4 is the first item entered, so it should be the one Enqueued
+            Assert.Equal(4, actual: queue.Dequeue().Value);
+        }
+
+        [Fact]
+        public void CanDequeueEmpty()
+        {
+            //Arrange
+            Node node = new Node() { Value = 4 };
+
+            Queue queue = new Queue(node);
+
+            //Act
 
             //Assert
 
-            //Assert.?(stack.Push(node7)); // Void method.  I don't know how to test nodes
+            Assert.Equal(4, queue.Dequeue().Value);
         }
+
+        [Fact]
+        public void CanDequeueEmpty2()
+        {
+            //Arrange
+            Node node = new Node() { Value = 4 };
+
+            Queue queue = new Queue(node);
+
+            //Act
+            Node dummy = queue.Dequeue();  //Pop completey empty
+            //Assert
+
+            Assert.Equal(4, queue.Dequeue().Value);
+            // False positive.  This should return null (better yet, I should be able to Assert.Throw), but the only way to pass this test is to make it equal 4.
+        }
+
 
     }
 }

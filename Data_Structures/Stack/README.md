@@ -25,3 +25,4 @@ C#, xUnit testing
 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
 04-02-2018 9:35am - Initial commit.
+04-02-2018 8:15pm - Program works.  Try/catch used and unit tests, although CanDequeueEmpty2 is a rigged positive test.  It should equal null like CanPopEmpty2.
