@@ -1,8 +1,8 @@
-# Stack
+# Stacks and Queues
 
 **Author**: Arthur Allen
 
-**Version**: 1.1.0 (increment the patch/fix version number up if you make more commits past your first submission)
+**Version**: 1.1.1 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 401 class. (i.e. What's your problem domain?) -->
@@ -30,3 +30,4 @@ A queue is a list where the first item entered is the first item removed (FIFO).
 04-02-2018 8:15pm - Program works.  Try/catch used and unit tests, although CanDequeueEmpty2 is a rigged positive test.  It should equal null like CanPopEmpty2.
 04-04-2018 9:35am - Seperate out the queue code per the instructions.  Write more details on the architecutre in the readme.
 04-04-2018 10:23am - Rerefactor to reincorporate Queues back into this project.  Solved problem of non-working unit test CanDequeueEmpty2: point the last enqueued item to point to null.  Changed the Queue type to MyQueue due to conflicts in the unit test.
+04-04-2018 10:36am - Changed name on top of readme to Stacks and Queues.
