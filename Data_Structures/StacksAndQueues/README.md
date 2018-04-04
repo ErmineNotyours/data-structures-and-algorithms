@@ -31,3 +31,4 @@ A queue is a list where the first item entered is the first item removed (FIFO).
 04-04-2018 9:35am - Seperate out the queue code per the instructions.  Write more details on the architecutre in the readme.
 04-04-2018 10:23am - Rerefactor to reincorporate Queues back into this project.  Solved problem of non-working unit test CanDequeueEmpty2: point the last enqueued item to point to null.  Changed the Queue type to MyQueue due to conflicts in the unit test.
 04-04-2018 10:36am - Changed name on top of readme to Stacks and Queues.
+04-04-2018 12:18pm - Changed folder and other names to reflect "Stacks and Queues"
