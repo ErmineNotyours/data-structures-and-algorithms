@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Stack
+namespace fifo_animal_shelter
 {
-    public class MyQueue
+    public class Queue
     {
         public Node Head { get; set; }
 
@@ -12,7 +12,7 @@ namespace Stack
         /// Sets memory location for the head.
         /// </summary>
         /// <param name="node">Incoming node at the top of the stack.</param>
-        public MyQueue(Node node)
+        public Queue(Node node)
         {
             Head = node;
         }
@@ -24,7 +24,7 @@ namespace Stack
         public void PrintAllNodes()
         {
             Node cur = Head; // start of node list
-            // traverse the node
+                             // traverse the node
             while (cur.Next != null)
             {
                 Console.WriteLine($"cur.Value: {cur.Value}");
@@ -60,7 +60,7 @@ namespace Stack
                 Node FrontNode = new Node(); // the node popped of the front of the list
                 Node PrevNode = new Node(); // The next to last node on the list
                 Node cur = Head; // start of node list
-                // traverse the node
+                                 // traverse the node
                 while (cur.Next != null)
                 {
                     PrevNode = cur;
@@ -81,6 +81,29 @@ namespace Stack
             }
         }
 
+        /// <summary>
+        /// Traverses the list, returns the value of the oldest item without removing it.
+        /// Traversal adapted from https://stackoverflow.com/questions/3823848/creating-a-very-simple-linked-list
+        /// </summary>
+        public Node PeekDequeue()
+        {
+            
+            Node cur = Head; // start of node list
+            // traverse the node
+            while (cur.Next != null)
+            {
+                cur = cur.Next; // get the next node
+            }
+            // We have reached the front of the queue
+
+            return cur;
+           
+
+            
+        }
+
+
 
     }
+
 }

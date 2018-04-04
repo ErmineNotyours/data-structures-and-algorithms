@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack", "Stack\Stack.csproj", "{D02F6541-7559-4389-8085-DEF849D51C3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stacks_and_Queues", "Stack\Stacks_and_Queues.csproj", "{D02F6541-7559-4389-8085-DEF849D51C3B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StackTest", "StackTest", "{9FD5C48D-72EF-4716-9D06-DF5F358D6A04}"
 EndProject
