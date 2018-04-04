@@ -19,7 +19,7 @@ Each project has hard-coded examples
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 + The Linked List project demonstrates a linked list, a primitive predecessor of other data structures
-+ The Stack project demonstrates a stack, a list where the first item entered is the last item out (FILO).
++ The Stacks and Queues project demonstrates a stack, a list where the first item entered is the last item out (FILO); and a queue, a list where the first item entered is the first item out (FIFO)..
 + The Queue project demonstrates a queue, a list where the first item entered is the first item out (FIFO).
 
 
