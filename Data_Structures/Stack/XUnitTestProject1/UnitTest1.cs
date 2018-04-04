@@ -88,7 +88,6 @@ namespace Stack
 
             Assert.Equal(null, stack.Pop());
         }
-        
 
         [Fact]
         public void CanDequeue()
@@ -101,7 +100,7 @@ namespace Stack
             Node node5 = new Node() { Value = 23 };
             Node node6 = new Node() { Value = 42 };
 
-            Queue queue = new Queue(node);
+            MyQueue queue = new MyQueue(node);
             queue.Enqueue(node2);
             queue.Enqueue(node3);
             queue.Enqueue(node4);
@@ -121,7 +120,7 @@ namespace Stack
             //Arrange
             Node node = new Node() { Value = 4 };
 
-            Queue queue = new Queue(node);
+            MyQueue queue = new MyQueue(node);
 
             //Act
 
@@ -136,15 +135,16 @@ namespace Stack
             //Arrange
             Node node = new Node() { Value = 4 };
 
-            Queue queue = new Queue(node);
+            MyQueue queue = new MyQueue(node);
 
             //Act
-            Node dummy = queue.Dequeue();  //Pop completey empty
-            //Assert
+            Node dummy = queue.Dequeue();  //Pop completely empty
+                                           //Assert
 
-            Assert.Equal(4, queue.Dequeue().Value);
-            // False positive.  This should return null (better yet, I should be able to Assert.Throw), but the only way to pass this test is to make it equal 4.
+            Assert.Equal(null, queue.Dequeue().Next);
+
         }
+
 
 
     }
