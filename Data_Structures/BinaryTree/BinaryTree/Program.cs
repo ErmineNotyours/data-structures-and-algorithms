@@ -32,14 +32,17 @@ namespace BinaryTree
             node3.LeftChild = node6;
             node3.RightChild = node7;
 
-            Console.WriteLine("In order sort:");
-            MyTree.InOrder(node1);
+            Console.WriteLine("In-order sort:");
+            string InOrder = MyTree.InOrder(node1, "");
+            Console.WriteLine($"Result of In order sort: {InOrder}");
 
-            Console.WriteLine("Pre order sort:");
-            MyTree.PreOrder(node1);
+            Console.WriteLine("Pre-order sort:");
+            string PreOrder = MyTree.PreOrder(node1, "");
+            Console.WriteLine($"Result of pre-order sort: {PreOrder}");
 
-            Console.WriteLine("Post order sort:");
-            MyTree.PostOrder(node1);
+            Console.WriteLine("Post-order sort:");
+            string PostOrder = MyTree.PostOrder(node1, "");
+            Console.WriteLine($"Result of post-order sort: {PostOrder}");
 
             Console.ReadLine();
 

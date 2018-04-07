@@ -13,14 +13,14 @@ Demonstrates a binary tree construction and three traversal methods.
 Visual Studio 2017
 
 ## Example
-<!-- Show them what looks like and how how to use the application.  -->
-Hard coded examples
+<!-- Show them what looks like and how to use the application.  -->
+Hard coded examples, unit tests.
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 The binary tree is constructed manually, with no Push method.  The contents of each node is put in when the node is declared, and the nodes are manually linked in the appropriate way. node1 is linked to node2 and node3, etc.
 The in-order traversal is performed this way: 1. Check that the current node is empty or null. If not, traverse the left subtree by recursively calling the in-order method. 2. Display the data part of the root (or current node). 3. Check that the current node is empty or null.  If not, traverse the right subtree by calling the in-order method.
-The pre-order traversal is performed this way: 1. Display the data part of te root (or current node). 2. Check if the current node is empty or null.  If not, traverse the left subtree by resursively calling the pre-order method. 3. Check if the current node is empty or null.  If not, traverse the right subtree by recursively calling the pre-order method.
+The pre-order traversal is performed this way: 1. Display the data part of the root (or current node). 2. Check if the current node is empty or null.  If not, traverse the left subtree by resursively calling the pre-order method. 3. Check if the current node is empty or null.  If not, traverse the right subtree by recursively calling the pre-order method.
 The post-order traversal is performed this way: 1. Check if the current node is empty or null.  If not, traverse the left subtree by recursively calling the post-order method. 2. Check if the current node is empty or null.  If not, traverse the right subtree by recursively calling the post-order method. 3. Display the data part of the root (or current node.)
 
 ## Change Log
@@ -28,3 +28,4 @@ The post-order traversal is performed this way: 1. Check if the current node is 
 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
 04-07-2018 1:55pm - Project built out.  Readme written with detailed archetecture.  Need to include unit tests.
+04-07-2018 4:10pm -  Implimented unit tests.

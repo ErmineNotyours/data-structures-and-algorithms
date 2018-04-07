@@ -21,6 +21,7 @@ Each project has hard-coded examples
 + The Linked List project demonstrates a linked list, a primitive predecessor of other data structures
 + The Stacks and Queues project demonstrates a stack, a list where the first item entered is the last item out (FILO); and a queue, a list where the first item entered is the first item out (FIFO)..
 + The Queue project demonstrates a queue, a list where the first item entered is the first item out (FIFO).
++ The Binary Tree project demonstrates a binary tree, and three ways to traverse it.
 
 
 ## Change Log

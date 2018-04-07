@@ -26,25 +26,28 @@ namespace BinaryTree
         /// 4. Traverse the right subtree by recursively calling the in-order function.
         /// </summary>
         /// <param name="node">A node from the tree</param>
-        public static void InOrder(Node node)
+        /// <param name="result">String result for unit testing</param>
+        public static string InOrder(Node node, string result)
         {
-
             // 1. Check if the current node is empty or null
             // 2. Traverse the left subtree by recursively calling the in-order method
             if (node.LeftChild != null)
             {
-                InOrder(node.LeftChild);
+                result += InOrder(node.LeftChild, result);
             }
 
             // 3. Display the data part of the root (or current node).
             // (Placing the print method here makes it an in-order traversal)
             Console.WriteLine(node.Value);
+            result += " " + node.Value.ToString();
 
             // 4. Traverse the right subtree by recursively calling the in-order method.
             if (node.RightChild != null)
             {
-                InOrder(node.RightChild);
+                result += InOrder(node.RightChild, result);
             }
+
+            return result;
         }
 
         /// <summary>
@@ -56,26 +59,28 @@ namespace BinaryTree
         /// 4. Traverse the right subtree by recursively calling the pre-order function.
         /// </summary>
         /// <param name="node">A node from the tree</param>
-        public static void PreOrder(Node node)
+        /// <param name="result">String result for unit testing</param>
+        public static string PreOrder(Node node, string result)
         {
             // 1. Check if the current node is empty or null.  (This step is performed in other steps)
 
             // 2. Display the data part of the root (or current node)
             // (Placing the print method here makes it a pre-order traversal)
             Console.WriteLine(node.Value);
+            result += " " + node.Value.ToString();
 
             // 3. Traverse the left subtree by recursively calling the pre-order method.
             if (node.LeftChild != null)
             {
-                PreOrder(node.LeftChild);
+                result += PreOrder(node.LeftChild, result);
             }
 
             // 4. Traverse the right subtree by recursively calling the pre-order method.
             if (node.RightChild != null)
             {
-                PreOrder(node.RightChild);
+                result += PreOrder(node.RightChild, result);
             }
-
+            return result;
         }
 
         /// <summary>
@@ -87,25 +92,29 @@ namespace BinaryTree
         /// 4. Display the data part of the root (or current node).
         /// </summary>
         /// <param name="node">A node from the tree.</param>
-        public static void PostOrder(Node node)
+        /// <param name="result">String result for unit testing</param>
+        public static string PostOrder(Node node, string result)
         {
             // 1. Check if the current node is empty or null. (This is performed in the other steps)
 
             // 2. Traverse the left subtree by recursively calling the post-order method.
             if (node.LeftChild != null)
             {
-                PostOrder(node.LeftChild);
+                result += PostOrder(node.LeftChild, result);
             }
 
             // 3. Traverse the right subtree by recursively calling the post-order method.
             if (node.RightChild != null)
             {
-                PostOrder(node.RightChild);
+                result += PostOrder(node.RightChild, result);
             }
 
             // Display the data part of the root (or current node).
             // (Placing the print method here makes it a post-order traversal.)
             Console.WriteLine(node.Value);
+            result += " " + node.Value.ToString();
+
+            return result;
 
         }
 
