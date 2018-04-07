@@ -19,7 +19,7 @@ namespace Stack
             // Instantiate the stack
             Stack stack = new Stack(snode);
 
-            // Populate the stack
+            // Link the stack
             stack.Push(snode2);
             stack.Push(snode3);
             stack.Push(snode4);
@@ -35,10 +35,10 @@ namespace Stack
             Node node6 = new Node() { Value = 42, Next = null }; // Point last item on queue to null.  Necessary for passing unit tests.
             Node node7 = new Node();
 
-            // Instatiate the queue
+            // Instantiate the queue
             MyQueue queue = new MyQueue(node);
 
-            // Populate the queue
+            // Link the queue
             queue.Enqueue(node2);
             queue.Enqueue(node3);
             queue.Enqueue(node4);
