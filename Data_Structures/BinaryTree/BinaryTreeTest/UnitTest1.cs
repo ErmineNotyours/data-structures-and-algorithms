@@ -175,6 +175,7 @@ namespace BinaryTree
             Assert.Equal(" 4 4 5 2 4 4 5 2 4 4 5 2 6 4 4 5 2 4 4 5 2 6 7 3 1", MyTree.PostOrder(node1, ""));
         }
 
+        [Fact]
         public void PostOrder2()
         {
             //Arrange 
