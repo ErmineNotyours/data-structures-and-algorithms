@@ -28,4 +28,5 @@ The post-order traversal is performed this way: 1. Check if the current node is 
 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
 04-07-2018 1:55pm - Project built out.  Readme written with detailed archetecture.  Need to include unit tests.
-04-07-2018 4:10pm -  Implimented unit tests.
+04-07-2018 4:10pm - Implimented unit tests.
+04-07-2018 5:52pm - Added missing "[Fact]" tag on a test
