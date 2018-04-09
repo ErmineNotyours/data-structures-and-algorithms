@@ -21,4 +21,5 @@ Exercise in using a stack to validate maching brackets
 <!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
-04=04-2018 5:00pm - Start of project.
+04-04-2018 5:00pm - Start of project.
+04-08-2018 5:15pm - Mostly built out, detects true conditions, but will not flag as false unbalanced strings such as "((((".  The following, for instance, do get flagged as false: "(]" and "))))".  If a stack is not empty at the end of iterating through candidate, then function should return false, but I can't detect this.

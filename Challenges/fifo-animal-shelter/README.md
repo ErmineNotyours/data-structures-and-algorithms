@@ -24,4 +24,5 @@ Whiteboard photo:
 <!-- Use this are to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
-04-03-2018 1:40mp - Starting project
+04-03-2018 1:40pm - Starting project
+04-07-2017 6:30pm - Continuing project

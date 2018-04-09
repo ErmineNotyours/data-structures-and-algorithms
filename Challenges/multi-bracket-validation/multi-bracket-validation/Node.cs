@@ -6,7 +6,7 @@ namespace multi_bracket_validation
 {
     public class Node
     {
-        public int Value { get; set; }
+        public string Value { get; set; }
         public Node Next { get; set; }
     }
 }
