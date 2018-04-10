@@ -74,10 +74,12 @@ namespace multi_bracket_validation
                     }
                 }
             }
-            // Check to see if stack is empty.  If it is not, return false.
             Console.WriteLine($"At end of iteration, Stack.Peek().Value: {Stack.Peek().Value}");
-            if (null != Stack.Peek().Value)
-                return false;
+
+            // Check to see if stack is empty.  If it is not, return false.
+            // Does not work.  Stack is never empty.
+            //if (null != Stack.Peek().Value)
+            //    return false;
 
             return true; // if return false hasn't been reached by this point, string must be balanced.
 

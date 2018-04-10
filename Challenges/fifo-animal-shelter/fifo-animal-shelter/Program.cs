@@ -7,37 +7,37 @@ namespace fifo_animal_shelter
         static void Main(string[] args)
         {
 
-            // Initialize and populate the shelter
-            Cat node = new Cat() { Name = "Mittens" };
-            Cat node2 = new Cat() { Name = "Tom" };
-            Dog node3 = new Dog() { Name = "Rover" };
-            Dog node4 = new Dog() { Name = "Rex", Next = null };
+            // Initialize and populate the nodes
+            // If the following block is commented out, it produces the following errors in the next block: 'The name 'Mittens' does not exist in the current context', etc.  This block doesn't seem connected to anything, but it's not as superfluous as you might think.
+            Cat Mittens = new Cat() { Name = "Mittens" };
+            Cat Tom = new Cat() { Name = "Tom" };
+            Dog Rover = new Dog() { Name = "Rover" };
+            Dog Rex = new Dog() { Name = "Rex", Next = null };
 
             // Instantiate the shleter
-            Node AnimalShelter = new Node();
+            Animal AnimalShelter = new Animal();
 
-            // Initial Enqueue 
-            Queue.Enqueue(node);
-            Queue.Enqueue(node2);
-            Queue.Enqueue(node3);
-            Queue.Enqueue(node4);
+            // Initialize and populate some more nodes
+            Node cat1 = new Cat() { Animal = Mittens };
+            Node cat2 = new Cat() { Animal = Tom };
+            Node dog1 = new Dog() { Animal = Rover };
+            Node dog2 = new Dog() { Animal = Rex };
 
 
+            // Initial Enqueue, populate the shelter (queue)
+            Queue.Enqueue(cat1);
+            Queue.Enqueue(cat2);
+            Queue.Enqueue(dog1);
+            Queue.Enqueue(dog2);
 
-            // Alternate queue, for moving animals around to find preference
-            Node altNode = new Node();
-            //Queue altQueue = new Queue(altNode);
-
-            // Task: use the above queue to find a dog
-            // Dequeue until you find target preference.  If not found, move that animal to the altQueue.  When done, place that queue back on the main queue in reverse order, as a stack, to preserve the order.
 
             Queue.PrintAllNodes(); //Print the queue
             string preference = "dog"; // Search for a dog
             Node animal = ShelterDequeue(preference, AnimalShelter); // Search for the preference animal, cat or dog.
-            Console.WriteLine($"Congratulations!  You've just adopted a {animal.Value} named {animal.Name}!");
+            Console.WriteLine($"Congratulations!  You've just adopted a {animal.Animal} named {animal.Animal.Name}!");
             Console.WriteLine("Animal shleter after adoption:");
             Queue.PrintAllNodes(); //Print the queue
-            Console.ReadLine();
+            Console.ReadLine(); // Names aren't printed, but you can still see four animals in the queue.  Dequeue isn't completely working.
 
 
         }
@@ -49,7 +49,7 @@ namespace fifo_animal_shelter
             if (preference != "cat" && preference != "dog") // For the case when no preference is given, just dequeue the next animal
                 return Queue.Dequeue();
 
-            // traverse the queue, until the target animal is found.  Use recursion?
+            // traverse the queue, until the target animal is found.  Use recursion.
 
             Node node = Queue.Head;
 

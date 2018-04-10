@@ -27,10 +27,10 @@ namespace fifo_animal_shelter
                              // traverse the node
             while (cur.Next != null)
             {
-                Console.WriteLine($"nameof(cur): {nameof(cur)}, cur.Name: {cur.Name}");
+                Console.WriteLine($"cur.Animal.Name: {cur.Animal.Name}"); // Runtime error: 'Object reference not set to an instance of an object.'
                 cur = cur.Next; // get the next node
             }
-            Console.WriteLine($"nameof(cur): {nameof(cur)}, cur.Name: {cur.Name}"); // Another call for cur.Value because the loop kicks out early
+            Console.WriteLine($"cur.Animal.Name: {cur.Animal.Name}"); // Another call because the loop kicks out early
         }
 
         /// <summary>
@@ -57,12 +57,14 @@ namespace fifo_animal_shelter
                 if (Head == null)
                     throw new System.ArgumentException("Queue is empty");
 
-                Node FrontNode = new Node(); // the node popped of the front of the list
+                Node FrontNode = new Node(); // the node to be popped off the front of the list
                 Node PrevNode = new Node(); // The next to last node on the list
                 Node cur = Head; // start of node list
                                  // traverse the node
                 while (cur.Next != null)
                 {
+                    Console.WriteLine($"Inside while cur.Nex != null. C.Animal.Name: {cur.Animal.Name}");
+
                     PrevNode = cur;
                     cur = cur.Next; // get the next node
                 }
@@ -70,7 +72,7 @@ namespace fifo_animal_shelter
                 FrontNode = cur;
                 cur = PrevNode;
                 cur.Next = null;
-
+                Console.WriteLine($"End of Dequeue reached, FrontNode.Animal.Name: {FrontNode.Animal.Name}"); //THIS IS NEVER REACHED!
                 return FrontNode;
             }
             catch (Exception)
@@ -85,7 +87,7 @@ namespace fifo_animal_shelter
         /// Traverses the list, returns the value of the oldest item without removing it.
         /// Traversal adapted from https://stackoverflow.com/questions/3823848/creating-a-very-simple-linked-list
         /// </summary>
-        public Node PeekDequeue()
+        public static Node PeekDequeue()
         {
             
             Node cur = Head; // start of node list
@@ -110,17 +112,41 @@ namespace fifo_animal_shelter
         /// <returns></returns>
         public static Node Traverse(Node node, string preference)
         {
-            // Need to test for node type Cat or Dog.  Use nameof(node) (C# In a Nutshell, page 95)
-            Console.WriteLine($"Inside Traverse. node.Name: {node.Name}");
-            if (node is preference)
+            // Recursive function does not work.  Runs four times, returns Cat every time, even though there are two cats and two dogs.
+            Console.WriteLine($"Inside Traverse. PeekDequeue().Animal {PeekDequeue().Animal}, PeekDequeue().Animal.Name {PeekDequeue().Animal.Name}");
+            if (preference == "cat")
             {
-                return Dequeue();
+                if (PeekDequeue().Animal is Cat)
+                {
+                    return Dequeue();
+                }
+                else
+                    if (node.Next != null)
+                {
+                    Traverse(node.Next, preference);
+                    return node;
+                }
+                else
+                    return null;
             }
-            else
-                if (node.Next != null)
+
+            if (preference == "dog")
             {
-                Traverse(node.Next, preference);
-                return node;
+                Console.WriteLine($"About to test if PeekDequeue().Animal is Dog: {PeekDequeue().Animal}"); // This is reached.  Cat is returned all four times.
+                if (PeekDequeue().Animal is Dog)
+                {
+                    Console.WriteLine("About to Dequeue Dog"); // THIS IS NEVER REACHED
+                    return Dequeue();
+                }
+                else
+                if (node.Next != null)
+                {
+                    Traverse(node.Next, preference);
+                    return node;
+                }
+                else
+                    return null;
+
             }
             else
                 return null;

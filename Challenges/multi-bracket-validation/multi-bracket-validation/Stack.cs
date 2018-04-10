@@ -42,10 +42,10 @@ namespace multi_bracket_validation
                 if (Head == null)
                     throw new System.ArgumentException("Stack is empty.");
                 Node node = Head; // Set node to head
-                Node tempNode = new Node();
-                tempNode = node; // temporarily store node
-                Head = node.Next; // Set Head to next node down.  This discards the top node.
-                return tempNode;
+                Head = node.Next; // Set Head to next node down.  This discards reference the top node.
+                // Does this ever empty the stack?  Does Head ever point to null?
+
+                return node;
 
             }
             catch (Exception)
