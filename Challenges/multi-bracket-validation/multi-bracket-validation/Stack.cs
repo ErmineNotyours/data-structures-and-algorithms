@@ -7,7 +7,7 @@ namespace multi_bracket_validation
     public class Stack
     {
 
-        public Node Head { get; set; }
+        public static Node Head { get; set; }
 
         /// <summary>
         /// Sets memory location for the head.
@@ -22,19 +22,19 @@ namespace multi_bracket_validation
         /// Pushes a new item on the top of a stack
         /// </summary>
         /// <param name="node">The new node to be pushed</param>
-        public void Push(Node node)
+        public static void Push(Node node)
         {
             node.Next = Head; // Set this node to point to what the Head was pointing at, now the second node down
             Head = node; // Point head to new node.
         }
 
-        public Node Peek() => Head; // Access the node at the head of the stack
+        public static Node Peek() => Head; // Access the node at the head of the stack
 
         /// <summary>
         /// Pops a node off the stack and returns the result.
         /// </summary>
         /// <returns>the popped node</returns>
-        public Node Pop()
+        public static Node Pop()
         {
             try
             {
@@ -42,10 +42,10 @@ namespace multi_bracket_validation
                 if (Head == null)
                     throw new System.ArgumentException("Stack is empty.");
                 Node node = Head; // Set node to head
-                Node tempNode = new Node();
-                tempNode = node; // temporarily store node
-                Head = node.Next; // Set Head to next node down.  This discards the top node.
-                return tempNode;
+                Head = node.Next; // Set Head to next node down.  This discards reference the top node.
+                // Does this ever empty the stack?  Does Head ever point to null?
+
+                return node;
 
             }
             catch (Exception)
