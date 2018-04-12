@@ -55,6 +55,7 @@ namespace BreadthFirstTraversal
             MyQueue queue = new MyQueue(queueNode);
 
             // Start at tree's root, seed the queue with its node
+            node1.Next = null;
             queue.Enqueue(node1);
             // Point queueNode to the head of the queue.
             queueNode = queue.Head;
