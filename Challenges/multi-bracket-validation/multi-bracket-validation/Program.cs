@@ -38,6 +38,7 @@ namespace multi_bracket_validation
 
             // Declare a node
             Node node = new Node();
+            node.Next = null;
 
             // Instantiate the stack
             Stack stack = new Stack(node);
@@ -76,8 +77,10 @@ namespace multi_bracket_validation
             }
             Console.WriteLine($"At end of iteration, Stack.Peek().Value: {Stack.Peek().Value}");
 
-            // Check to see if stack is empty.  If it is not, return false.
-            // Does not work.  Stack is never empty.
+            //// Check to see if stack is empty.  If it is not, return false.
+            //// Does not work.  Stack is never empty.  Perhaps a better test is to pop another item, and check if empty.
+            //node = Stack.Pop();
+            //// Still doesn't work.  Stack is still not empty (or at least not returning null) on true, balanced conditions.
             //if (null != Stack.Peek().Value)
             //    return false;
 

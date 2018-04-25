@@ -43,7 +43,8 @@ namespace multi_bracket_validation
                     throw new System.ArgumentException("Stack is empty.");
                 Node node = Head; // Set node to head
                 Head = node.Next; // Set Head to next node down.  This discards reference the top node.
-                // Does this ever empty the stack?  Does Head ever point to null?
+                Console.WriteLine($"In Pop, setting head to next node down.  Now points to {Head.Value}");
+                // Does this ever empty the stack?  Does Head ever point to null?  Only in test cases.
 
                 return node;
 
