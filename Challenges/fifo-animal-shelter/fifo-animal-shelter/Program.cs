@@ -14,14 +14,14 @@ namespace fifo_animal_shelter
             Dog Rover = new Dog() { Name = "Rover" };
             Dog Rex = new Dog() { Name = "Rex", Next = null };
 
-            // Instantiate the shleter
+            // Instantiate the shelter
             Animal AnimalShelter = new Animal();
 
             // Initialize and populate some more nodes
             Node cat1 = new Cat() { Animal = Mittens };
             Node cat2 = new Cat() { Animal = Tom };
             Node dog1 = new Dog() { Animal = Rover };
-            Node dog2 = new Dog() { Animal = Rex };
+            Node dog2 = new Dog() { Animal = Rex, Next = null };
 
 
             // Initial Enqueue, populate the shelter (queue)
