@@ -18,7 +18,7 @@ Hard coded example
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
-![Whiteboard Photo](PrintLevelOrder/assets/.jpg)
+![Whiteboard Photo](/assets/PrintLevelOrder.jpg)
 Written in C#, using built-in queue method.  Do a breadth-first traversal of a tree.  Seed a queue with the first node, and a flag node.  Then, while there is greater than one node in the queue (normally greater than zero, but you have to account for the flag node) dequeue a node, print the node's value without a carriage return, and enqueue the node's children.  If you encounter the flag (which has just been dequeued), reenqueue a new flag on the other end of the queue to flag the next carriage return.
 
 ## Change Log
