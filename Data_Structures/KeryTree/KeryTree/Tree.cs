@@ -26,20 +26,17 @@ namespace KeryTree
         /// <param name="node">The incoming tree root</param>
         public string BreadthFirst(Node node)
         {
-            Console.WriteLine("Entering BreadthFIrst");
-            string progress = "";
-            // Enqueue the root node onto a queue to start
-            MyQueue queue = new MyQueue(node);
-            queue.Enqueue(node);
+            string progress = ""; // String collection of items traversed so far.  Used in testing.
+            var q = new Queue<Node>(); // Instantiate a built-in Queue.
+            q.Enqueue(node); // Enqueue the root of the tree to seed the process.
 
-            Node SampleNode = new Node();
+            Node SampleNode = new Node(); // Node to dequeue and use to enqueue its children.
 
             //While the queue is not empty...
-            while (!queue.IsQueueEmpty())
+            while (q.Count > 0)
             {
-                //Console.WriteLine("Top of while queue not empty");
                 //Dequeue a node from the queue
-                SampleNode = queue.Dequeue();
+                SampleNode = q.Dequeue();
 
                 //Print the node's value
                 Console.Write($"{SampleNode.Value}, ");
@@ -48,10 +45,23 @@ namespace KeryTree
                 //Enqueue the child nodes, if they have any
                 //Use a foreach loop
                 foreach (var x in SampleNode.Children)
-                    queue.Enqueue(x);
+                    q.Enqueue(x);
             }
 
             return progress;
+        }
+
+        public string AddNode(Node parent, string value)
+        {
+            // Test to see if tree already exists?
+
+            // Create new node
+            Node node = new Node() { Value = value };
+
+            // Link the node
+            parent.Children.Add(node);
+
+            return (node.Value);
         }
 
 

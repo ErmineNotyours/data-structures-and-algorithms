@@ -32,7 +32,7 @@ namespace Stack
             Node node3 = new Node() { Value = 15 };
             Node node4 = new Node() { Value = 16 };
             Node node5 = new Node() { Value = 23 };
-            Node node6 = new Node() { Value = 42, /*Next = null */}; // Point last item on queue to null.  Necessary for passing unit tests.
+            Node node6 = new Node() { Value = 42, Next = null }; // Point last item on queue to null.  Necessary for passing unit tests and for completely dequeuing the queue.  This can't be entered when the nodes are placed in Enqueue.
             Node node7 = new Node();
 
             // Instantiate the queue

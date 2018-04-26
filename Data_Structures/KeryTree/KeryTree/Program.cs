@@ -64,6 +64,12 @@ namespace KeryTree
 
             tree.BreadthFirst(nodeA);
 
+            Console.WriteLine();// Line return to seperate the tests.
+
+            tree.AddNode(nodeA, "Z");
+
+            tree.BreadthFirst(nodeA);
+
             Console.ReadLine();
 
         }
