@@ -26,3 +26,5 @@ A k-ary tree is a tree which has nodes of any number of children.  The children 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
 04-23-2018 7:41pm - Project started by copying over code from the Binary Tree data structure project.
 04-24-2018 9:30pm - Made some headway in fixing my queue logic, but I'm running into other problems.  The test for if a queue is empty is if head is null, but I don't know how to do that.  Currently runs an infinite loop.
+04-25-2018 2:18pm - Works, when using C# built-in Queue.  Need to write unit tests.
+04-25-2018 5:25pm - Tests added.

@@ -10,9 +10,10 @@ namespace KeryTree
 
         /// <summary>
         /// Sets memory location for the head.
+        /// When Head was set to node, I was stuck on an infinite loop in traversing the queue to remove A.  By setting Head to null, you can not have more than one queue at a time.
         /// </summary>
-        /// <param name="node">Incoming node at the top of the stack.</param>
-        public MyQueue(Node node)
+        /// <param name="node">Incoming node at the top of the stack. (No longer needed)</param>
+        public MyQueue()
         {
             Head = null;
         }
@@ -40,30 +41,32 @@ namespace KeryTree
         public void Enqueue(Node node)
         {
             //This is the same code as Push.
-            //Node temp = node;
-            // node.Next = Head; // Point new node to what the head was pointing at, now the second node.
-            // Head = node; // Point Head to new node
+            // When this code is active, infinite loop in Console Writeline "traversing the queue"
+            // When this code is active, the head points to itself and the queue becomes looped when the queue is not populated through hard coding.
+            Console.WriteLine($"Enqueueing {node.Value}"); ;
+            node.Next = Head; // Point new node to what the head was pointing at, supposedly the second node; or null if this is the first enqueue
+            Head = node; // Point Head to new node
 
-            //return value; // Only necessary for testing.  This particular data doesn't do anything.  It just writes to a list.
-
-            if (Head == null)
-            {
-                Head = node;
-            }
-            else
-            {
-                Head = node;
-                Head.Next = null;
-            }
+            // When this code is active, the queue demonstration in the main Stack and Queue program fails.
+            // Infinite loop in dequeuing node "M" in this program. 
+            // By pointing Head.Next to null, it limits the queue to just the first item.  Nothing else is ever seen.
+            //if (Head == null)
+            //{
+            //    Head = node;
+            //}
+            //else
+            //{
+            //    Head = node; // Point Head to new node
+            //    Head.Next = null; // this would spell the premature end of the queue, if other items are supposed to be behind it.
+            //}
         }
 
         /// <summary>
-        /// Tells if queue is empty.
+        /// Supposed to tell if queue is empty.  Doesn't work.  Nothing sets the Head to null when the queue is completely dequeued.
         /// </summary>
         /// <returns>boolean</returns>
         public Boolean IsQueueEmpty()
         {
-            // Should be "if Head.Next == null...", but then nothing happens and the program ends.
             if (Head == null)
                 return true;
             else
@@ -81,24 +84,25 @@ namespace KeryTree
                 if (Head == null)
                     throw new System.ArgumentException("Queue is empty");
 
-                Node FrontNode = new Node(); // the node popped of the front of the list
-                Node PrevNode = new Node(); // The next to last node on the list
-                Node cur = Head; // start of node list
+                Node PrevNode = new Node(); // The next to last node checked or on the list
+                Node cur = Head; // Set current node to start of list
                 // traverse the node
                 while (cur.Next != null)
                 {
-                    Console.WriteLine("Traversing for Dequeue");
+                    // Stuck in an INFINITE LOOP the third time something is dequeued.
+                    // Goes like this (in BreadthFirst method): A is enqueued, then is supposedly dequeued.  The second row (A's children) is enqueued.  Then the queue is checked for dequeue again.  A is again dequeued.  (It shouldn't still be there.)  A's children are enqueued again.  A call for dequeue is made again (third time).  The queue is now traversed for the end of the queue (a pointer pointing to null) but it is never found.  It seems the queue has a circular reference (confirmed in debugging).  At least A does not show up on this traversal.  If A is successfully dequeued in the first place, this might not happen.  The problem seems to happen on an attempt to Dequeue on a queue that only has one item.
+                    // I was able to run Dequeue twice, though it didn't dequeue A, so it didn't completely work.  It did detect a null those first two times, so that part works.  Perhaps the problem came from re-enqueueing duplicate nodes.
+                    Console.WriteLine($"Traversing for Dequeue, cur: {cur.Value}");
                     PrevNode = cur;
                     cur = cur.Next; // get the next node
                 }
-                // We have reached the front of the queue
-                FrontNode = cur;
-                cur = PrevNode;
-                cur.Next = null;
-                // TODO: Need to set Head to null if the queue is empty.
+                // We have reached the dequeue end of the queue
 
-                Console.WriteLine($"Dequeuing {FrontNode.Value}");
-                return FrontNode;
+                PrevNode.Next = null; // PrevNode is now at the dequeue end of the queue, so set to null so the new end can be found.
+                // TODO: Need to set Head to null if the queue is empty, or refactor IsQueueEmpty.
+
+                Console.WriteLine($"Dequeuing {cur.Value}");
+                return cur;
             }
             catch (Exception)
             {
