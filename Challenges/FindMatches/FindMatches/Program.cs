@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FindMatches
 {
-    class Program
+    public class Program
     {
         public static Node Children { get; private set; }
 
@@ -48,42 +48,57 @@ namespace FindMatches
             nodeE.Children.Add(nodeK);
             nodeE.Children.Add(nodeL);
 
+            Console.WriteLine("Find Matches on a K-ary Tree");
+            Console.WriteLine();
             string target = "B";
+            Console.WriteLine($"Target: {target}");
+
+            Console.WriteLine("Found:");
 
             List<Node> collection = new List<Node>();
-
-            FindMatches(nodeA, target, collection);
+            collection = FindMatches(nodeA, target, collection);
             foreach (var c in collection)
                 Console.Write(c.Value + ", ");
 
             Console.ReadLine();
-
-
         }
 
-        public static string FindMatches(Node node, string target, List<Node> collection)
+        /// <summary>
+        /// Finds matches in a K-ary tree.  Most of the work is done in another method, which is called recursively.
+        /// </summary>
+        /// <param name="node">The head of the tree</param>
+        /// <param name="target">The target to match</param>
+        /// <param name="collection">The collection of found nodes.</param>
+        /// <returns>A collection of the matched nodes</returns>
+        public static List<Node> FindMatches(Node node, string target, List<Node> collection)
         {
-            string progress = "";
             Traverse(node, target, collection);
 
-            return progress;
+            return collection;
         }
 
+        /// <summary>
+        /// Traverses the K-ary tree looking for matches
+        /// </summary>
+        /// <param name="node">The reletive head to search for</param>
+        /// <param name="target">The target to match</param>
+        /// <param name="collection">The collection of found nodes so far</param>
+        /// <returns>A collection of the found nodes so far</returns>
         public static List<Node> Traverse(Node node, string target, List<Node> collection)
         {
+            if (node == null)
+                return collection;
+
             if (node.Value == target)
             {
-                Console.WriteLine($"Adding: {node.Value}");
                 collection.Add(node);
             }
 
-            foreach (var x in node.Children)
+            foreach (Node x in node.Children)
             {
-                // Stack overflow.
-                if (node.Children != null)
+                if (x != null)
                 {
-                    Console.WriteLine($"About to call Traverse, node: {node.Value}"); // Only ever prints "A".
-                    collection = Traverse(node.Children.x, target, collection);
+                    collection = Traverse(x, target, collection);
                 }
             }
 
