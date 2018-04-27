@@ -1,15 +1,17 @@
-﻿using System;
+using FindMatches;
+using System;
 using System.Collections.Generic;
+using Xunit;
 
-namespace FindMatches
+
+namespace FindMatchesTest
 {
-    class Program
+    public class UnitTest1
     {
-        public static Node Children { get; private set; }
-
-        static void Main(string[] args)
+        [Fact]
+        public void FindMatchesTest1()
         {
-
+            // Arrange
             Node node = new Node();
 
             // Declare and populate the nodes
@@ -25,7 +27,7 @@ namespace FindMatches
             Node nodeJ = new Node() { Value = "J" };
             Node nodeK = new Node() { Value = "B" };
             Node nodeL = new Node() { Value = "L" };
-            
+
 
 
             // Instantiate the tree
@@ -48,47 +50,13 @@ namespace FindMatches
             nodeE.Children.Add(nodeK);
             nodeE.Children.Add(nodeL);
 
-            Console.WriteLine("Find Matches on a K-ary Tree");
-            Console.WriteLine();
             string target = "B";
-            Console.WriteLine($"Target: {target}");
-
-            Console.WriteLine("Found:");
 
             List<Node> collection = new List<Node>();
-            collection = FindMatches(nodeA, target, collection);
-            foreach (var c in collection)
-                Console.Write(c.Value + ", ");
 
-            Console.ReadLine();
-        }
+            // Assert
+            Assert.Equal(, FindMatches(nodeA, target, collection));
 
-        public static List<Node> FindMatches(Node node, string target, List<Node> collection)
-        {
-            Traverse(node, target, collection);
-
-            return collection;
-        }
-
-        public static List<Node> Traverse(Node node, string target, List<Node> collection)
-        {
-            if (node == null)
-                return collection;
-
-            if (node.Value == target)
-            {
-                collection.Add(node);
-            }
-
-            foreach (Node x in node.Children)
-            {
-                if (x != null)
-                {
-                    collection = Traverse(x, target, collection);
-                }
-            }
-
-            return collection;
         }
     }
 }

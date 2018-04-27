@@ -24,3 +24,4 @@ Use C# to traverse a K-ary tree and search for a match of a target.
 
 01-01-2001 4:59pm - Added functionality to add and delete some things. -->
 04-26-2018 2:00pm - Can't figure out how to recursively reference a tree with nodes of a collection.
+04-26-2018 8:00pm - Works, now on to unit tests.
