@@ -15,18 +15,18 @@ namespace FindMatchesTest
             Node node = new Node();
 
             // Declare and populate the nodes
-            Node nodeA = new Node() { Value = "A" };
-            Node nodeB = new Node() { Value = "B" };
-            Node nodeC = new Node() { Value = "C" };
-            Node nodeD = new Node() { Value = "D" };
-            Node nodeE = new Node() { Value = "B" };
-            Node nodeF = new Node() { Value = "F" };
-            Node nodeG = new Node() { Value = "G" };
-            Node nodeH = new Node() { Value = "H" };
-            Node nodeI = new Node() { Value = "I" };
-            Node nodeJ = new Node() { Value = "J" };
-            Node nodeK = new Node() { Value = "B" };
-            Node nodeL = new Node() { Value = "L" };
+            Node nodeA = new Node() {Value = "A"};
+            Node nodeB = new Node() {Value = "B"};
+            Node nodeC = new Node() {Value = "C"};
+            Node nodeD = new Node() {Value = "D"};
+            Node nodeE = new Node() {Value = "B"};
+            Node nodeF = new Node() {Value = "F"};
+            Node nodeG = new Node() {Value = "G"};
+            Node nodeH = new Node() {Value = "H"};
+            Node nodeI = new Node() {Value = "I"};
+            Node nodeJ = new Node() {Value = "J"};
+            Node nodeK = new Node() {Value = "B"};
+            Node nodeL = new Node() {Value = "L"};
 
 
 
@@ -53,9 +53,93 @@ namespace FindMatchesTest
             string target = "B";
 
             List<Node> collection = new List<Node>();
+            string result = "";
+            collection = Program.FindMatches(nodeA, target, collection);
+            foreach (var c in collection)
+                result += c.Value;
 
             // Assert
-            Assert.Equal(, FindMatches(nodeA, target, collection));
+            Assert.Equal("BBB", result);
+
+        }
+
+        [Fact]
+        public void FindMatchesTest2()
+        {
+            // Arrange
+            Node node = new Node();
+
+            // Declare and populate the nodes
+            Node nodeA = new Node() {Value = "A"};
+            Node nodeB = new Node() {Value = "B"};
+            Node nodeC = new Node() {Value = "C"};
+            Node nodeD = new Node() {Value = "D"};
+            Node nodeE = new Node() {Value = "B"};
+            Node nodeF = new Node() {Value = "F"};
+            Node nodeG = new Node() {Value = "G"};
+            Node nodeH = new Node() {Value = "H"};
+            Node nodeI = new Node() {Value = "I"};
+            Node nodeJ = new Node() {Value = "J"};
+            Node nodeK = new Node() {Value = "B"};
+            Node nodeL = new Node() {Value = "L"};
+
+
+
+            // Instantiate the tree
+            MyTree tree = new MyTree(nodeA);
+
+            // Link the tree.
+            nodeA.Children.Add(nodeB);
+            nodeA.Children.Add(nodeC);
+            nodeA.Children.Add(nodeD);
+            nodeA.Children.Add(nodeE);
+            nodeA.Children.Add(nodeF);
+            nodeA.Children.Add(nodeG);
+
+
+            nodeB.Children.Add(nodeH);
+            nodeB.Children.Add(nodeI);
+            nodeB.Children.Add(nodeJ);
+
+
+            nodeE.Children.Add(nodeK);
+            nodeE.Children.Add(nodeL);
+
+            string target = "A";
+
+            List<Node> collection = new List<Node>();
+            string result = "";
+            collection = Program.FindMatches(nodeA, target, collection);
+            foreach (var c in collection)
+                result += c.Value;
+
+            // Assert
+            Assert.Equal("A", result);
+
+        }
+
+        [Fact]
+        public void FindMatchesTest3()
+        {
+            // Arrange
+            Node node = new Node();
+
+            // Declare and populate the nodes
+            Node nodeA = new Node() {Value = "A"};
+
+            // Instantiate the tree
+            MyTree tree = new MyTree(nodeA);
+
+            string target = "A";
+
+            List<Node> collection = new List<Node>();
+            string result = "";
+            collection = Program.FindMatches(nodeA, target, collection);
+            foreach (var c in collection)
+                result += c.Value;
+
+            // Assert
+            Assert.Equal("A", result);
 
         }
     }

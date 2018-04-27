@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FindMatches
 {
-    class Program
+    public class Program
     {
         public static Node Children { get; private set; }
 
@@ -63,6 +63,13 @@ namespace FindMatches
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Finds matches in a K-ary tree.  Most of the work is done in another method, which is called recursively.
+        /// </summary>
+        /// <param name="node">The head of the tree</param>
+        /// <param name="target">The target to match</param>
+        /// <param name="collection">The collection of found nodes.</param>
+        /// <returns>A collection of the matched nodes</returns>
         public static List<Node> FindMatches(Node node, string target, List<Node> collection)
         {
             Traverse(node, target, collection);
@@ -70,6 +77,13 @@ namespace FindMatches
             return collection;
         }
 
+        /// <summary>
+        /// Traverses the K-ary tree looking for matches
+        /// </summary>
+        /// <param name="node">The reletive head to search for</param>
+        /// <param name="target">The target to match</param>
+        /// <param name="collection">The collection of found nodes so far</param>
+        /// <returns>A collection of the found nodes so far</returns>
         public static List<Node> Traverse(Node node, string target, List<Node> collection)
         {
             if (node == null)
